@@ -60,14 +60,14 @@ class Standoff {
             for (int j = 0; j < 4; j++) {
 
                 int answerIndex = (int) Math.floor(Math.random() * 4);
-                int c = -1;
-                for (int k = 0; k < 4; k++) {
+                
+                for (int k = 0, c = 0; k < 4; k++) {
                     if (answerIndex == k) {
                         options[k] = quiz[1][i];
                         continue;
                     }
-                    c++;
                     options[k] = quiz[i+2][c];           
+                    c++;
                 }
 
             }
