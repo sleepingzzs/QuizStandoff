@@ -11,24 +11,27 @@ class Standoff {
     Scanner sc = new Scanner(System.in);
     
     void Welcome() {
+        //printing rules
         System.out.println("\nQuiz Standoff!\n");
         System.out.println("- Each player will create a quiz of 3 questions twice and the other player will have to answer them.");
         System.out.println("- For each correct answer the score increases by 5 and for each wrong answer the score reduces by 2.");
         System.out.println("- The player with highest score at the end wins");
         System.out.println("\nGood luck to both players!");
         
+        //inputting player names
         System.out.print("\nName of player 1: ");
         player1 = sc.next();
         System.out.print("Name of player 2: ");
         player2 = sc.next();
     }
-            
+    
+
     String[][] questions (String p1) {
         System.out.println("\n" + p1 + "'s turn to create questions. \n");
         sc.nextLine();
         String[][] quiz = new String[5][3];
         for (int i = 0; i < 3; i++) {
-
+            //storing questions along with options
             System.out.print("Question number " + (i+1) + ": ");
             quiz[0][i] = sc.nextLine();
             System.out.print("Correct answer: ");    
@@ -88,10 +91,14 @@ class Standoff {
     }
 
     public static void main(String[] args) {
+        
         Standoff ob = new Standoff();
         ob.Welcome();
+        
         int finalScoreP1 = 0;
         int finalScoreP2 = 0;
+        
+        //creating rounds for each player
         for (int i = 1; i <= 4; i++) {
             if (i%2 != 0) {
 
@@ -108,6 +115,8 @@ class Standoff {
             }
 
         }
+
+        //declaring scores and the winner
         System.out.println();
         System.out.println(Standoff.player1 + ": " + finalScoreP1);
         System.out.println(Standoff.player2 + ": " + finalScoreP2);
