@@ -14,7 +14,6 @@ class Standoff {
         System.out.println("\nQuiz Standoff!\n");
         System.out.println("- Each player will create a quiz of 3 questions twice and the other player will have to answer them.");
         System.out.println("- For each correct answer the score increases by 5 and for each wrong answer the score reduces by 2.");
-        System.out.println("- It is best of 3.");
         System.out.println("- The player with highest score at the end wins");
         System.out.println("\nGood luck to both players!");
         
