@@ -39,7 +39,7 @@ class Standoff {
     int Quiz (String[][] quiz, String p2) {
         int score = 0;
         String[] options = new String[4];
-        System.out.println("\n" + p2 + "'s turn to answer.");
+        System.out.println(p2 + "'s turn to answer.\n");
 
         for (int i = 0; i < 3; i++) {
             System.out.println(quiz[0][i] + " ?");
