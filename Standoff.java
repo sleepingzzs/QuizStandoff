@@ -15,10 +15,11 @@ class Standoff {
         player1 = sc.next();
         System.out.print("Name of player 2: ");
         player2 = sc.next();
+        System.out.println("\n*\t*\t*");
     }    
 
-    String[][] Questions (String p1) {
-        System.out.println("\n" + p1 + "'s turn to create questions. \n");
+    String[][] Questions (String name) {
+        System.out.println("\n" + name + "'s turn to create questions. \n");
         sc.nextLine();
         String[][] quiz = new String[5][3];
         //storing questions along with options
@@ -32,17 +33,18 @@ class Standoff {
                 quiz[i+2][j] = sc.nextLine();
             }
             System.out.println();
-        } 
+        }
+        System.out.println("\n*\t*\t*\n");
         return quiz; 
     }
 
-    int Quiz (String[][] quiz, String p2) {
+    int Quiz (String[][] quiz, String name) {
         int score = 0;
         String[] options = new String[4];
-        System.out.println(p2 + "'s turn to answer.\n");
-
+        System.out.println(name + "'s turn to answer.\n");
+        
         for (int i = 0; i < 3; i++) {
-            System.out.println(quiz[0][i] + " ?");
+            System.out.println("Question " + (i+1) + ") " + quiz[0][i] + " ?\n");
             //randomizing options
             for (int j = 0; j < 4; j++) {
                 int answerIndex = (int) Math.floor(Math.random() * 4);       
@@ -59,10 +61,18 @@ class Standoff {
                 System.out.println("(" + (l+1) +") " + options[l]);
             }
             System.out.print("\nSelect option: ");
-            int ans = sc.nextInt() - 1;
-            if (options[ans].equals(quiz[1][i])) score+=5;
-            else score-=2;
+            int ans = sc.next().charAt(0) - 49;
+            System.out.println();
+            
+            if (ans < 0 || ans > 3 ) {
+                System.out.println(name + " entered invalid option... 3 points deducted! \n");
+                score -=3;
+                continue;
+            }
+            if (options[ans].equals(quiz[1][i])) score += 5;
+            else score -= 2;
         }
+        System.out.println("*\t*\t*");
         return score;
     }
 
@@ -74,12 +84,10 @@ class Standoff {
         for (int i = 1; i <= 4; i++) {
             if (i%2 != 0) {
                 String[][] questions = ob.Questions(Standoff.player1);
-                int score = ob.Quiz(questions, Standoff.player2);
-                finalScoreP2 += score;
+                finalScoreP2 += ob.Quiz(questions, Standoff.player2);
             } else {
                 String[][] questions = ob.Questions(Standoff.player2);
-                int score = ob.Quiz(questions, Standoff.player1);
-                finalScoreP1 += score;
+                finalScoreP1 += ob.Quiz(questions, Standoff.player1);
             }
         }
         //declaring scores and the winner
