@@ -1,3 +1,9 @@
+/*
+ * @Author Abismar
+ * @Github https://github.com/sleepingzzs/QuizStandoff
+ * @Description Text based game to create quizes and duel with your friends! Similar to Kahoot
+ */
+
 import java.util.Scanner;
 
 class Standoff {
@@ -99,9 +105,3 @@ class Standoff {
         else System.out.println("A tie between " + player1 + " and " + player2);
     }
 }
-
-/*
- * @Author Abismar
- * @Github https://github.com/sleepingzzs/QuizStandoff
- * @Description Text based game to create quizes and duel with your friends! Similar to Kahoot
- */
